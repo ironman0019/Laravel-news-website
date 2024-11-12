@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashbordController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,5 @@ require __DIR__.'/auth.php';
 Route::prefix('admin/')->name('admin.')->group(function() {
     Route::get('index', DashbordController::class)->name('index');
     Route::resource('category', CategoryController::class);
+    Route::resource('post', PostController::class);
 });
