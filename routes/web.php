@@ -27,6 +27,6 @@ Route::prefix('admin/')->name('admin.')->group(function() {
     Route::get('index', DashbordController::class)->name('index');
     Route::resource('category', CategoryController::class);
     Route::resource('post', PostController::class);
-    Route::get('breaking-news/{post}', [PostController::class, 'breakingNews'])->name('post.breaking-news');
-    Route::get('selected/{post}', [PostController::class, 'selected'])->name('post.selected');
+    Route::get('post/breaking-news/{post}', [PostController::class, 'breakingNews'])->name('post.breaking-news');
+    Route::get('post/selected/{post}', [PostController::class, 'selected'])->name('post.selected');
 });
