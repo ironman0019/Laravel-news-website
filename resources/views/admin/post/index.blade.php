@@ -35,7 +35,7 @@
                     <td>
                         {{ $post->title }}
                     <td>
-                        {{ $post->summary }} 
+                        {{ Str::limit($post->summary, 20) }} 
                     </td>
                     <td>
                         {{ $post->view }}
@@ -54,16 +54,16 @@
                     <td>
                         {{ $post->category->name }}
                     </td>
-                    <td><img style="width: 80px;" src="" alt=""></td>
+                    <td><img style="width: 80px;" src="{{ asset($post->image) }}" alt=""></td>
                     <td style="width: 25rem;">
-                        <a role="button" class="btn btn-sm btn-warning btn-dark text-white" href="">
+                        <a role="button" class="btn btn-sm btn-warning btn-dark text-white" href="{{ route('admin.post.breaking-news', $post) }}">
                             @if($post->breaking_news == 1)
                                 remove breaking news 
                             @else
                                 add breaking news
                             @endif
                         </a>
-                        <a role="button" class="btn btn-sm btn-warning btn-dark text-white" href="">
+                        <a role="button" class="btn btn-sm btn-warning btn-dark text-white" href="{{ route('admin.post.selected', $post) }}">
                             @if($post->selected == 1)
                                 remove selcted 
                             @else
@@ -71,8 +71,13 @@
                             @endif
                         </a>
                         <hr class="my-1" />
-                        <a role="button" class="btn btn-sm btn-primary text-white" href="">edit</a>
-                        <a role="button" class="btn btn-sm btn-danger text-white" href="">delete</a>
+                        <a role="button" class="btn btn-sm btn-primary text-white" href="{{ route('admin.post.edit', $post) }}">edit</a>
+                        <form action="{{ route('admin.post.destroy', $post) }}" method="post" class="d-inline">
+                            @csrf 
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger text-white">delete</button>
+                        </form>
+                        
                     </td>
                 </tr>
             @endforeach
