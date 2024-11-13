@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\admin\DashbordController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\ProfileController;
@@ -31,4 +32,6 @@ Route::prefix('admin/')->name('admin.')->group(function() {
     Route::get('post/breaking-news/{post}', [PostController::class, 'breakingNews'])->name('post.breaking-news');
     Route::get('post/selected/{post}', [PostController::class, 'selected'])->name('post.selected');
     Route::resource('banner', BannerController::class);
+    Route::resource('comment', CommentController::class);
+    Route::get('comment/approve/{comment}', [CommentController::class, 'commentApprove'])->name('comment.approve');
 });
