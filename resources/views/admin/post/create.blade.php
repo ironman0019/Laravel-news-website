@@ -23,7 +23,7 @@
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Enter title ..." required autofocus>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter title ..." value="{{old('title')}}" required autofocus>
             </div>
 
             <div class="form-group">
@@ -52,12 +52,12 @@
 
             <div class="form-group">
                 <label for="summary">summary</label>
-                <textarea class="form-control" id="summary" name="summary" placeholder="summary ..." rows="3" required autofocus></textarea>
+                <textarea class="form-control" id="summary" name="summary" placeholder="summary ..." rows="3" required autofocus>{{old('summary')}}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="body">body</label>
-                <textarea class="form-control" id="body" name="body" placeholder="body ..." rows="5" required autofocus></textarea>
+                <textarea class="form-control" id="body" name="body" placeholder="body ..." rows="5" required autofocus>{{old('body')}}</textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-sm">store</button>
