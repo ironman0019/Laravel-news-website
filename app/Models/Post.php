@@ -22,4 +22,10 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    // Relation with commetns
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
