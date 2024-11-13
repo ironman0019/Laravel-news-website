@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashbordController;
 use App\Http\Controllers\Admin\PostController;
@@ -29,4 +30,5 @@ Route::prefix('admin/')->name('admin.')->group(function() {
     Route::resource('post', PostController::class);
     Route::get('post/breaking-news/{post}', [PostController::class, 'breakingNews'])->name('post.breaking-news');
     Route::get('post/selected/{post}', [PostController::class, 'selected'])->name('post.selected');
+    Route::resource('banner', BannerController::class);
 });
