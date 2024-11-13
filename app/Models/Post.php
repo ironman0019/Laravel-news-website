@@ -9,6 +9,8 @@ class Post extends Model
 {
     use SoftDeletes;
 
+    protected $guarded = ['id'];
+
     // Relation with user
     public function user()
     {
