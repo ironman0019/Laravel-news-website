@@ -205,6 +205,7 @@ return [
         'address_id' => 'آدرس',
         'copan' => 'کد تخفیف',
         'subject' => 'عنوان',
+        'key_words' => 'لغات کلیدی',
 
     ],
 ];
