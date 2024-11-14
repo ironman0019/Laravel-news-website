@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\admin\DashbordController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +35,6 @@ Route::prefix('admin/')->name('admin.')->group(function() {
     Route::resource('banner', BannerController::class);
     Route::resource('comment', CommentController::class);
     Route::get('comment/approve/{comment}', [CommentController::class, 'commentApprove'])->name('comment.approve');
+    Route::resource('user', UserController::class);
+    Route::get('user/change-status/{user}', [UserController::class, 'changeStatus'])->name('user.change-status');
 });
