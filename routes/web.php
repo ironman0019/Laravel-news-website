@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\admin\DashbordController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\WebSettingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,4 +38,7 @@ Route::prefix('admin/')->name('admin.')->group(function() {
     Route::get('comment/approve/{comment}', [CommentController::class, 'commentApprove'])->name('comment.approve');
     Route::resource('user', UserController::class);
     Route::get('user/change-status/{user}', [UserController::class, 'changeStatus'])->name('user.change-status');
+    Route::get('webSetting/index', [WebSettingController::class, 'index'])->name('webSetting.index');
+    Route::get('webSetting/set/{id}', [WebSettingController::class, 'setWebSettingIndex'])->name('webSetting.setIndex');
+    Route::post('webSetting/set/{id}', [WebSettingController::class, 'setWebSetting'])->name('webSetting.set');
 });
