@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\admin\DashbordController;
+use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WebSettingController;
@@ -41,4 +42,5 @@ Route::prefix('admin/')->name('admin.')->group(function() {
     Route::get('webSetting/index', [WebSettingController::class, 'index'])->name('webSetting.index');
     Route::get('webSetting/set/{id}', [WebSettingController::class, 'setWebSettingIndex'])->name('webSetting.setIndex');
     Route::post('webSetting/set/{id}', [WebSettingController::class, 'setWebSetting'])->name('webSetting.set');
+    Route::resource('menu', MenuController::class);
 });
