@@ -13,7 +13,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $comments = Comment::paginate(5);
+        $comments = Comment::latest()->paginate(5);
         $view = view('admin.comment.index', compact('comments'));
 
         // Update comments status
