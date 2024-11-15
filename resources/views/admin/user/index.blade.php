@@ -30,7 +30,7 @@
                             @if($user->status == 0) not admin @endif
                             @if($user->status == 1) admin @endif 
                         </td>
-                        <td>ss</td>
+                        <td>{{ \Morilog\Jalali\Jalalian::forge($user->created_at)->format('%A, %d %B %y') }}</td>
                         <td>
                             @if($user->status == 0)
                                 <a role="button" class="btn btn-sm btn-success text-white" href="{{ route('admin.user.change-status', $user) }}">click to be admin</a>
