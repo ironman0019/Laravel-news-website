@@ -8,13 +8,14 @@ use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WebSettingController;
+use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\CheckAdmin;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -45,3 +46,7 @@ Route::prefix('admin/')->middleware([CheckAdmin::class, 'verified'])->name('admi
     Route::post('webSetting/set/{id}', [WebSettingController::class, 'setWebSetting'])->name('webSetting.set');
     Route::resource('menu', MenuController::class);
 });
+
+
+// app routes
+Route::get('/', [HomeController::class, 'index'])->name('home');
