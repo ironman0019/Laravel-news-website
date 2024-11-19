@@ -9,7 +9,13 @@
          
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="">logout</a>
+        <form method="POST" action="{{ route('logout') }}" class="dropdown-item d-flex justify-content-center">
+            @csrf
+
+            <button type="submit" class="btn btn-sm btn-danger">
+                Log Out
+            </button>
+        </form>
         </div>
     </span>
 </span>
