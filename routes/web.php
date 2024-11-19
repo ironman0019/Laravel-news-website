@@ -9,11 +9,12 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WebSettingController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\CheckAdmin;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -28,7 +29,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::prefix('admin/')->name('admin.')->group(function() {
+Route::prefix('admin/')->middleware([CheckAdmin::class, 'verified'])->name('admin.')->group(function() {
     Route::get('index', DashbordController::class)->name('index');
     Route::resource('category', CategoryController::class);
     Route::resource('post', PostController::class);
