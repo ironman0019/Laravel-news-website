@@ -28,4 +28,16 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+
+    // Search filter
+    public function scopeFilter($query, array $filters)
+    {
+        if($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('summary', 'like', '%' . request('search') . '%')
+                ->orWhere('body', 'like', '%' . request('search') . '%');
+        }
+        
+    }
 }
