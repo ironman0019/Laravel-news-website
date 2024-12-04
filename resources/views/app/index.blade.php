@@ -14,7 +14,7 @@
                 </div>
                 <div class="top-post-details">
                     <ul class="tags">
-                        <li><a href="#">{{ $selectedPosts[0]->category->name }}</a></li>
+                        <li><a href="{{ route('category', $selectedPosts[0]->category) }}">{{ $selectedPosts[0]->category->name }}</a></li>
                     </ul>
                     <a href="{{ route('show', $selectedPosts[0]) }}">
                         <h3>{{ $selectedPosts[0]->title }}</h3>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="top-post-details">
                         <ul class="tags">
-                            <li><a href="#">{{ $selectedPosts[1]->category->name }}</a></li>
+                            <li><a href="{{ route('category', $selectedPosts[1]->category) }}">{{ $selectedPosts[1]->category->name }}</a></li>
                         </ul>
                         <a href="{{ route('show', $selectedPosts[1]) }}">
                             <h4>{{ $selectedPosts[1]->title }}</h4>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="top-post-details">
                         <ul class="tags">
-                            <li><a href="#">{{ $selectedPosts[2]->category->name }}</a></li>
+                            <li><a href="{{ route('category', $selectedPosts[2]->category) }}">{{ $selectedPosts[2]->category->name }}</a></li>
                         </ul>
                         <a href="{{ route('show', $selectedPosts[2]) }}">
                             <h4>{{ $selectedPosts[2]->title }}</h4>
@@ -74,7 +74,7 @@
             @isset($breakingNews)
             <div class="col-lg-12">
                 <div class="news-tracker-wrap">
-                    <h6><span>خبر فوری:</span> <a href="#">{{ $breakingNews->title }}</a></h6>
+                    <h6><span>خبر فوری:</span> <a href="{{ route('show', $breakingNews) }}">{{ $breakingNews->title }}</a></h6>
                 </div>
             </div>
             @endisset
@@ -98,7 +98,7 @@
                                     <img class="img-fluid" src="{{ asset($lastPost->image) }}" alt="">
                                 </div>
                                 <ul class="tags">
-                                    <li><a href="#">{{ $lastPost->category->name }}</a></li>
+                                    <li><a href="{{ route('category', $lastPost->category) }}">{{ $lastPost->category->name }}</a></li>
                                 </ul>
                             </div>
                             <div class="col-lg-7 post-right">
@@ -123,7 +123,7 @@
                     @empty(!$adsBanner)
                         <div class="col-lg-12 ad-widget-wrap mt-30 mb-30">
                             <h4 class="ads-title">تبلیغات</h4>
-                            <a href="#"><img class="img-fluid" src="{{ asset($adsBanner->image) }}" alt="Advertisment"></a>
+                            <a href="{{ $adsBanner->url }}"><img class="img-fluid" src="{{ asset($adsBanner->image) }}" alt="Advertisment"></a>
                         </div>
                     @endempty
                 <!-- End banner-ads Area -->
@@ -138,9 +138,9 @@
                         </div>
                         <div class="details">
                             <ul class="tags">
-                                <li><a href="#">{{ $popularPosts[0]->category->name }}</a></li>
+                                <li><a href="{{ route('category', $popularPosts[0]->category) }}">{{ $popularPosts[0]->category->name }}</a></li>
                             </ul>
-                            <a href="image-post.html">
+                            <a href="{{ route('show', $popularPosts[0]) }}">
                                 <h3>{{ $popularPosts[0]->title }}</h3>
                             </a>
                             <ul class="meta">
@@ -160,11 +160,11 @@
                                     <img class="img-fluid" src="{{ asset($popularPosts[1]->image) }}" alt="">
                                 </div>
                                 <ul class="tags">
-                                    <li><a href="#">{{ $popularPosts[1]->category->name }}</a></li>
+                                    <li><a href="{{ route('category', $popularPosts[1]->category) }}">{{ $popularPosts[1]->category->name }}</a></li>
                                 </ul>
                             </div>
                             <div class="details">
-                                <a href="image-post.html">
+                                <a href="{{ route('show', $popularPosts[1]) }}">
                                     <h4>{{ $popularPosts[1]->title }}</h4>
                                 </a>
                                 <ul class="meta">
@@ -186,11 +186,11 @@
                                     <img class="img-fluid" src="{{ asset($popularPosts[2]->image) }}" alt="">
                                 </div>
                                 <ul class="tags">
-                                    <li><a href="#">{{ $popularPosts[2]->category->name }}</a></li>
+                                    <li><a href="{{ route('category', $popularPosts[2]->category) }}">{{ $popularPosts[2]->category->name }}</a></li>
                                 </ul>
                             </div>
                             <div class="details">
-                                <a href="image-post.html">
+                                <a href="{{ route('show', $popularPosts[2]) }}">
                                     <h4>{{ $popularPosts[2]->title }}</h4>
                                 </a>
                                 <ul class="meta">

@@ -15,7 +15,7 @@
                     </div>
                     <div class="content-wrap">
                         <ul class="tags mt-10">
-                            <li><a href="#">{{ $post->category->name }}</a></li>
+                            <li><a href="{{ route('category', $post->category) }}">{{ $post->category->name }}</a></li>
                         </ul>
                         <a href="#">
                             <h3>{{$post->title}}</h3>

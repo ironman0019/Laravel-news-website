@@ -10,11 +10,11 @@
                         <img class="img-fluid" src="{{ asset($selectedPosts[0]->image) }}" alt="">
                     </div>
                     <ul class="tags">
-                        <li><a href="#">{{ $selectedPosts[0]->category->name }}</a></li>
+                        <li><a href="{{ route('category', $selectedPosts[0]->category) }}">{{ $selectedPosts[0]->category->name }}</a></li>
                     </ul>
                 </div>
                 <div class="details">
-                    <a href="image-post.html">
+                    <a href="{{ route('show', $selectedPosts[0]) }}">
                         <h4 class="mt-20">{{$selectedPosts[0]->title}}</h4>
                     </a>
                     <ul class="meta">
@@ -41,7 +41,7 @@
                         <img class="img-fluid" src="{{ asset($mostCommentedPost->image) }}" alt="">
                     </div>
                     <div class="details">
-                        <a href="image-post.html">
+                        <a href="{{ route('show', $mostCommentedPost) }}">
                             <h6>{{ $mostCommentedPost->title }}</h6>
                         </a>
                         <ul class="meta">
