@@ -50,3 +50,5 @@ Route::prefix('admin/')->middleware([CheckAdmin::class, 'verified'])->name('admi
 
 // app routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/show/{post}', [HomeController::class, 'show'])->name('show');
+Route::post('/store_comment/{post}', [HomeController::class, 'storeComment'])->name('store.comment');
