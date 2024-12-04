@@ -9,4 +9,5 @@
     <link rel="stylesheet" href="{{ asset('app/css/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('app/css/jquery-ui.css') }}">
     <link rel="stylesheet" href="{{ asset('app/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-assets/sweetalert/sweetalert2.css') }}">
 @show

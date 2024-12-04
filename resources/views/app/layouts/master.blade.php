@@ -18,6 +18,7 @@
     <!-- End footer Area -->
 
     @include('app.layouts.scripts')
+    @include('admin.alerts.sweetalert.success')
 </body>
 
 </html>
