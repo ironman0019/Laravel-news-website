@@ -53,3 +53,4 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/show/{post}', [HomeController::class, 'show'])->name('show');
 Route::get('/category/{category}', [HomeController::class, 'category'])->name('category');
 Route::post('/store_comment/{post}', [HomeController::class, 'storeComment'])->name('store.comment');
+Route::get('/search', [HomeController::class, 'search'])->name('search');
