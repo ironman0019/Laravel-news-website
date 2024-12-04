@@ -1752,6 +1752,14 @@ body {
     padding: 10px 25px;
 }
 
+.ads-title {
+    font-size: 14px;
+    font-weight: 600;
+    background: #04091e;
+    color: #fff;
+    padding: 10px 25px;
+}
+
 .latest-post-area .latest-post-wrap .single-latest-post {
     margin-top: 20px;
 }
