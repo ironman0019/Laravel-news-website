@@ -45,14 +45,16 @@
         </nav>
         <!-- #nav-menu-container -->
         <div class="navbar-right">
-            <form class="Search">
-                <input type="text" class="form-control Search-box" name="Search-box" id="Search-box" placeholder="جستجو">
+            <form class="Search" action="{{ route('search') }}">
+                <input type="text" class="form-control Search-box" name="search" id="Search-box" placeholder="جستجو">
                 <label for="Search-box" class="Search-box-label">
                         <span class="lnr lnr-magnifier"></span>
                     </label>
                 <span class="Search-close">
                         <span class="lnr lnr-cross"></span>
+                        <button type="submit" class="primary-btn text-uppercase">جستجو</button>
                 </span>
+                
             </form>
         </div>
     </div>
