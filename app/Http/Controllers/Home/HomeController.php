@@ -56,4 +56,10 @@ class HomeController extends Controller
             return back();
         }
     }
+
+    public function search()
+    {
+        $posts = Post::latest()->filter(request(['search']))->get();
+        return view('app.search', compact('posts'));
+    }
 }
