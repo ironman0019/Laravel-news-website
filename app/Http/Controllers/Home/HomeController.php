@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
+use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -31,9 +32,10 @@ class HomeController extends Controller
         return view('app.show', compact('post'));
     }
 
-    public function category()
+    public function category(Category $category)
     {
-
+        $posts = Post::latest()->where('category_id', $category->id)->get();
+        return view('app.category', compact('posts', 'category'));
     }
 
     public function storeComment(Post $post, Request $request)
