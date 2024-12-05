@@ -11,7 +11,7 @@
                 <!-- Start latest-post Area -->
                 <div class="latest-post-wrap">
                     <h4 class="cat-title">{{request()->search}}</h4>
-                    @foreach($posts as $post)
+                    @forelse($posts as $post)
                         <div class="single-latest-post row align-items-center">
                             <div class="col-lg-5 post-left">
                                 <div class="feature-img relative">
@@ -19,7 +19,7 @@
                                     <img class="img-fluid" src="{{ asset($post->image) }}" alt="">
                                 </div>
                                 <ul class="tags">
-                                    <li><a href="#">{{ $post->category->name }}</a></li>
+                                    <li><a href="{{ route('category', $post->category) }}">{{ $post->category->name }}</a></li>
                                 </ul>
                             </div>
                             <div class="col-lg-7 post-right">
@@ -36,7 +36,11 @@
                                 </p>
                             </div>
                         </div>
-                    @endforeach
+                    @empty
+                        <div>
+                            <p class="text-center mt-2">جستجوی شما نتیجه ای نداشت!</p>
+                        </div>
+                    @endforelse
                 </div>
                 <!-- End latest-post Area -->
 
